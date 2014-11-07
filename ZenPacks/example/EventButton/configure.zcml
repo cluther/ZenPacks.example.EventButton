@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+    <!-- Browser Resources -->
+    <browser:resourceDirectory
+        name="example-eventbutton"
+        directory="resources"
+        />
+
+    <!-- JavaScript -->
+    <browser:viewlet
+        name="js-example-eventbutton"
+        paths="/++resource++example-eventbutton/eventclass.js"
+        weight="10"
+        for="Products.ZenEvents.EventClass.EventClass"
+        manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+        class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+        permission="zope2.Public"
+        />
+
+    <!-- Router used to handle API calls. -->
+    <browser:directRouter
+        name="ExampleEventButtonRouter"
+        for="*"
+        class=".api.ExampleEventButtonRouter"
+        namespace="Zenoss.remote"
+        />
+
+</configure>
