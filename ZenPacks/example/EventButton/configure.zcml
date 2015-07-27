@@ -22,6 +22,8 @@
         />
 
     <!-- Router used to handle API calls. -->
+    <include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+
     <browser:directRouter
         name="ExampleEventButtonRouter"
         for="*"
